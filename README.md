@@ -23,9 +23,15 @@ this deduplication is really only partially completed (see the
 csv_example_deduplication.py for more information on its deficiencies).
 
 To start working, make sure you have a Python IDE installed on your machine.  I
-recommend Anaconda distribution to start.  You can use Spyder or Jupyter
-notebooks for example.  Open a command prompt window, change director to the
-folder containing this file and the requirements.txt file.  Execute the command
+recommend Anaconda distribution to start.  You can go to the following link to
+find installation instructions/documentation:
+
+https://docs.anaconda.com/anaconda/install/
+
+Spyder is the IDE included with this installation, which is sufficient to work
+with these projects unless you prefer another.  Open a command prompt window, 
+change directory to the folder containing this file and the requirements.txt 
+file.  Execute the command
 
 "pip install -r requirements.txt"
 
