@@ -58,5 +58,5 @@ multiple deduplication passes, improve data cleaning, modify distance functions,
 optimize thresholds and weights, etc.
 
 If you complete all the examples in this file, there are others in the original
-dedupio package mentioned above that include connecting to MySQL and PostGres
+dedupio package mentioned above that include connecting to MySQL and PostgreSQL
 databases.  This is a great way to further work on these kind of problems.
