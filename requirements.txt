@@ -1,0 +1,5 @@
+jellyfish==0.7.1
+matplotlib==3.0.3
+numpy==1.16.2
+pandas==0.23.4
+scipy==1.1.0
