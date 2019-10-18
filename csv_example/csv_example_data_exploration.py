@@ -2,7 +2,7 @@
 # =============================================================================
 # Use pip install to install the packages below if they fail to import.  Some
 # of these packages are automatically installed in Python distributions, others
-# will require you to install by executing 'pip install (package name)'  in 
+# will require you to install by executing 'pip install (package name)'  in
 # commend line.
 # =============================================================================
 
@@ -17,7 +17,7 @@ from collections import Counter
 # Check that you have the csv_example_messy_input.csv file in that folder.
 # =============================================================================
 
-root_dir = r'C:\Users\uyr2d55\OneDrive - HMESRETL\Documents\Projects\deduplication_models\csv_example'
+root_dir = r'(filepath to deduplication_models repository)\deduplication_models\csv_example'
 input_file = 'csv_example_messy_input.csv'
 
 def clean_site_name(s):
@@ -141,6 +141,3 @@ plt.bar([w for w,c in zip_code_count.most_common(top_n_plot) if w is not None],[
 plt.xticks(rotation=90,fontsize=16)
 plt.title('Top {} zip codes'.format(top_n_plot),fontsize=24)
 plt.show()
-
-
-

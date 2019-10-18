@@ -2,7 +2,7 @@
 # =============================================================================
 # Use pip install to install the packages below if they fail to import.  Some
 # of these packages are automatically installed in Python distributions, others
-# will require you to install by executing 'pip install (package name)'  in 
+# will require you to install by executing 'pip install (package name)'  in
 # commend line.
 # =============================================================================
 
@@ -20,7 +20,7 @@ from itertools import product # product iteration function
 # You can also modify the output filename to whatever you like.
 # =============================================================================
 
-root_dir = r'C:\Users\uyr2d55\OneDrive - HMESRETL\Documents\Projects\deduplication_models\csv_example'
+root_dir = r'(filepath to deduplication_models repository)\deduplication_models\csv_example'
 input_file = 'csv_example_messy_input.csv'
 output_file = 'csv_example_record_key.csv'
 
@@ -140,7 +140,7 @@ def phone_distance(x,y):
         dist += 1
     else:
         dist += jellyfish.levenshtein_distance(x[1],y[1])
-    
+
     if x[2] is None or y[2] is None:
         dist += .5
     else:
@@ -174,7 +174,7 @@ dedup_graph_id = 0
 # zip code are excluded entirely.  This should be addressed.
 zip_blocks = df[['Id','Zip clean']].groupby('Zip clean').agg({'Id' : list})
 
-# Deduplication threshold and weights for weighted distance.  
+# Deduplication threshold and weights for weighted distance.
 # These values should be adjusted based on performance or optimzed with respect
 # to a training set.
 threshold = 1.5
@@ -199,7 +199,7 @@ for zip_code,d in zip_blocks.iterrows(): # This loop iterates over deduplication
     num_classes,class_map = sparse.csgraph.connected_components(AA,directed = False) # estract connected components
     clusters = [ list(np.where(class_map == i)[0]) for i in range(num_classes) if len(np.where(class_map == i)[0]) > 1] # extract clusters
     cluster_diameters = [max([A[i,j] for i,j in product(c,c)]) for c in clusters] # compute cluster diameter
-    
+
     for c,d in zip(clusters,cluster_diameters): # loop through new duplicate records and append to dedup_graph_df
         for i,j in zip(c[:-1],c[1:]):
             new_row = pd.Series({'row' : ids[i],
@@ -229,7 +229,7 @@ for ind in df['Id']: # map all records for which no duplicates were discovered
     if not ind in all_dedup_ids:
         cluster_map.update({ind : cluster_id})
         cluster_id += 1
-    
+
 # append golden record id to the dataset
 df['Golden record id'] = df['Id'].apply(lambda x : cluster_map[x])
 
@@ -245,7 +245,7 @@ record_key.to_csv(os.path.join(root_dir,output_file),index=False)
 
 for gld_rec_key in range(150):
     temp = df[df['Golden record id'] == gld_rec_key].copy()
-    
+
     print('\n\n{} duplicate records discovered for golden record key {}'.format(len(temp),gld_rec_key))
     print('\nSite names:')
     print(temp['Site name'])
@@ -255,9 +255,7 @@ for gld_rec_key in range(150):
     print(temp['Zip clean'])
     print('\nPhone numbers:')
     print(temp['Phone clean'])
-    
+
     s = input('Press enter to see another, enter "q" to quit: ')
     if s == 'q':
         break
-    
-
